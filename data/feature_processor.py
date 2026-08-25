@@ -70,11 +70,12 @@ def process_features(df_clean=None):
     last3_increasing = (df_features["close"] > df_features["close"].shift(1)) & (df_features["close"].shift(1) > df_features["close"].shift(2))
     indicators_df["pattern_three_soldiers"] = (last3_close_up & last3_increasing).astype(int)
     
-    # 3. Generar labels (forward-looking 30 min = 2 velas)
-    indicators_df['returns_2_candles'] = indicators_df['close'].shift(-2) / indicators_df['close'] - 1
+    # 3. Generar labels (forward-looking 1 hora = 4 velas de 15m)
+    # Usando 4 velas en lugar de 2 para capturar movimientos más distinguibles (±0.3-0.5%)
+    indicators_df['returns_2_candles'] = indicators_df['close'].shift(-4) / indicators_df['close'] - 1
     
-    # Drop rows at the end that don't have future labels (last 2 rows)
-    indicators_df = indicators_df.iloc[:-2].copy()
+    # Drop rows at the end that don't have future labels (last 4 rows)
+    indicators_df = indicators_df.iloc[:-4].copy()
     
     # Rebalancear labels con cuantiles (Opción A)
     indicators_df['LABEL'] = pd.qcut(

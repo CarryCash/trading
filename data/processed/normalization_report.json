@@ -2,302 +2,302 @@
     "features": [
         {
             "name": "macd",
-            "mean_train": -3.5237663061846414,
-            "std_train": 155.38643625118468,
+            "mean_train": -3.514622504324185,
+            "std_train": 155.40159168745436,
             "min_train": -837.1340479268401,
             "max_train": 892.409355374315,
             "data_type": "continuous"
         },
         {
             "name": "macd_signal",
-            "mean_train": -3.5178166016816736,
-            "std_train": 145.40142687116744,
+            "mean_train": -3.5151121950777386,
+            "std_train": 145.41685790059228,
             "min_train": -704.6846631808605,
             "max_train": 778.487289674192,
             "data_type": "continuous"
         },
         {
             "name": "macd_hist",
-            "mean_train": -0.0059497045029700815,
-            "std_train": 49.016608882644846,
+            "mean_train": 0.0004896907535514807,
+            "std_train": 49.019112503020466,
             "min_train": -272.9133384661937,
             "max_train": 284.5150120633424,
             "data_type": "continuous"
         },
         {
             "name": "adx",
-            "mean_train": 26.434878673668837,
-            "std_train": 11.556853304768875,
+            "mean_train": 26.437185380188993,
+            "std_train": 11.557010358366123,
             "min_train": 6.847649367752553,
             "max_train": 72.83111511848422,
             "data_type": "continuous"
         },
         {
             "name": "rsi",
-            "mean_train": 49.93126706383607,
-            "std_train": 11.237432077699047,
+            "mean_train": 49.931585348440294,
+            "std_train": 11.237915618376435,
             "min_train": 11.290885056477151,
             "max_train": 87.55969321981857,
             "data_type": "continuous"
         },
         {
             "name": "stoch_k",
-            "mean_train": 50.11389048152344,
-            "std_train": 27.808867027891647,
+            "mean_train": 50.1143010104584,
+            "std_train": 27.809229337354477,
             "min_train": 0.0,
             "max_train": 100.0,
             "data_type": "continuous"
         },
         {
             "name": "stoch_d",
-            "mean_train": 50.1168818128572,
-            "std_train": 25.615886168638273,
+            "mean_train": 50.121090261296715,
+            "std_train": 25.616535141910358,
             "min_train": 1.0836944754937936,
             "max_train": 98.82632589982568,
             "data_type": "continuous"
         },
         {
             "name": "cci",
-            "mean_train": -1.5004744046077505,
-            "std_train": 109.85577498282836,
+            "mean_train": -1.489107913596343,
+            "std_train": 109.85776158290706,
             "min_train": -322.71919446323005,
             "max_train": 327.0637793007082,
             "data_type": "continuous"
         },
         {
             "name": "obv",
-            "mean_train": 1243.6096651485323,
-            "std_train": 19769.158055823835,
+            "mean_train": 1249.3477484458908,
+            "std_train": 19767.377851311336,
             "min_train": -37174.499690000135,
             "max_train": 28171.01896999996,
             "data_type": "continuous"
         },
         {
             "name": "volume_spike",
-            "mean_train": 0.12050898203592815,
-            "std_train": 0.32555578213970104,
+            "mean_train": 0.12032085561497326,
+            "std_train": 0.3253363602781804,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "atr",
-            "mean_train": 196.4582366514162,
-            "std_train": 81.6959391969182,
+            "mean_train": 196.44506769035755,
+            "std_train": 81.69936913192957,
             "min_train": 52.2234481499593,
             "max_train": 620.5419305951488,
             "data_type": "continuous"
         },
         {
             "name": "pattern_doji",
-            "mean_train": 0.08821642429426861,
-            "std_train": 0.2836093912038214,
+            "mean_train": 0.08823529411764706,
+            "std_train": 0.2836367870880281,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "pattern_hammer",
-            "mean_train": 0.046834901625320786,
-            "std_train": 0.21128510031487624,
+            "mean_train": 0.046844919786096256,
+            "std_train": 0.2113065859748116,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "pattern_shooting_star",
-            "mean_train": 0.04822497861420017,
-            "std_train": 0.2142412893255175,
+            "mean_train": 0.04823529411764706,
+            "std_train": 0.21426304048769387,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "pattern_bullish_engulfing",
-            "mean_train": 0.09580838323353294,
-            "std_train": 0.29432828089687446,
+            "mean_train": 0.09582887700534759,
+            "std_train": 0.29435642227959213,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "pattern_bearish_engulfing",
-            "mean_train": 0.09719846022241233,
-            "std_train": 0.2962278169801149,
+            "mean_train": 0.09721925133689839,
+            "std_train": 0.29625608602422226,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "pattern_engulfing",
-            "mean_train": -0.001390076988879384,
-            "std_train": 0.43932324220545194,
+            "mean_train": -0.0013903743315508022,
+            "std_train": 0.4393702256656271,
             "min_train": -1.0,
             "max_train": 1.0,
             "data_type": "continuous"
         },
         {
             "name": "pattern_three_soldiers",
-            "mean_train": 0.10618049615055603,
-            "std_train": 0.3080684962598055,
+            "mean_train": 0.10620320855614973,
+            "std_train": 0.3080975284687118,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "price_momentum_1",
-            "mean_train": -0.0005251077593601054,
-            "std_train": 0.2210129272689079,
+            "mean_train": -0.0005963744261071535,
+            "std_train": 0.22077261384790273,
             "min_train": -2.9758319144831624,
             "max_train": 2.927511407302319,
             "data_type": "continuous"
         },
         {
             "name": "price_momentum_5",
-            "mean_train": -0.002957708253775689,
-            "std_train": 0.4811840592167425,
+            "mean_train": -0.002994936713068053,
+            "std_train": 0.48118442626820795,
             "min_train": -5.037556404659704,
             "max_train": 3.5044534790800164,
             "data_type": "continuous"
         },
         {
             "name": "price_momentum_20",
-            "mean_train": -0.011208228753707227,
-            "std_train": 0.9080791837111919,
+            "mean_train": -0.01120217660011649,
+            "std_train": 0.9081439515017453,
             "min_train": -5.596785107910085,
             "max_train": 5.985330832726099,
             "data_type": "continuous"
         },
         {
             "name": "volatility_20_pct",
-            "mean_train": 0.3201142998954899,
-            "std_train": 0.23411414222522575,
+            "mean_train": 0.3201046036653987,
+            "std_train": 0.2341382329303196,
             "min_train": 0.037012536401273416,
             "max_train": 1.801946254007243,
             "data_type": "continuous"
         },
         {
             "name": "atr_ratio",
-            "mean_train": 0.28185252283663037,
-            "std_train": 0.13046112217165454,
+            "mean_train": 0.2818255768566198,
+            "std_train": 0.13046160505899768,
             "min_train": 0.07803509537017447,
             "max_train": 1.0185025537905328,
             "data_type": "continuous"
         },
         {
             "name": "sma_cross",
-            "mean_train": 0.525235243798118,
-            "std_train": 0.4993627764165542,
+            "mean_train": 0.5251336898395722,
+            "std_train": 0.4993678980822137,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "ema_above_sma",
-            "mean_train": 0.5089820359281437,
-            "std_train": 0.4999193165207617,
+            "mean_train": 0.5089839572192514,
+            "std_train": 0.49991928199728675,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "macd_positive",
-            "mean_train": 0.5018177929854577,
-            "std_train": 0.49999669561774307,
+            "mean_train": 0.5019251336898396,
+            "std_train": 0.49999629384654065,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "price_above_200sma",
-            "mean_train": 0.5238451668092386,
-            "std_train": 0.4994310843548282,
+            "mean_train": 0.5238502673796791,
+            "std_train": 0.49943084080372707,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "rsi_oversold",
-            "mean_train": 0.0424508126603935,
-            "std_train": 0.20161532968716855,
+            "mean_train": 0.04245989304812834,
+            "std_train": 0.2016359356128511,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "rsi_overbought",
-            "mean_train": 0.03571428571428571,
-            "std_train": 0.18557687223952257,
+            "mean_train": 0.03572192513368984,
+            "std_train": 0.18559598378853162,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "stoch_oversold",
-            "mean_train": 0.18231394354148844,
-            "std_train": 0.38610305558469665,
+            "mean_train": 0.18235294117647058,
+            "std_train": 0.38613513958297196,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "volume_spike_ratio",
-            "mean_train": 1.0355116983552086,
-            "std_train": 0.8272774107770039,
+            "mean_train": 1.0351478181849652,
+            "std_train": 0.8269867346229979,
             "min_train": 0.0825196926231753,
             "max_train": 10.826036445452836,
             "data_type": "continuous"
         },
         {
             "name": "obv_trending",
-            "mean_train": 0.4931565440547476,
-            "std_train": 0.4999531649172004,
+            "mean_train": 0.49315508021390375,
+            "std_train": 0.49995314487771947,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "distance_to_support_pct",
-            "mean_train": 0.7051316693740493,
-            "std_train": 0.6745878385877636,
+            "mean_train": 0.7050850074519482,
+            "std_train": 0.6746131392644764,
             "min_train": 0.0,
             "max_train": 6.4296257502768475,
             "data_type": "continuous"
         },
         {
             "name": "distance_to_resistance_pct",
-            "mean_train": 0.6841139351144299,
-            "std_train": 0.6158324861138056,
+            "mean_train": 0.6840519720347399,
+            "std_train": 0.6158423267353781,
             "min_train": 0.0,
             "max_train": 5.667125194199899,
             "data_type": "continuous"
         },
         {
             "name": "price_in_upper_third",
-            "mean_train": 0.3229255774165954,
-            "std_train": 0.4675945346844357,
+            "mean_train": 0.32288770053475935,
+            "std_train": 0.4675801892490046,
             "min_train": 0.0,
             "max_train": 1.0,
             "data_type": "binary"
         },
         {
             "name": "vwap_distance_pct",
-            "mean_train": -2.2251862219130407,
-            "std_train": 8.671242938256166,
+            "mean_train": -2.2236175111170184,
+            "std_train": 8.671504354669253,
             "min_train": -19.76426101874125,
             "max_train": 11.16203442875974,
             "data_type": "continuous"
         },
         {
             "name": "bb_position_pct",
-            "mean_train": 49.60301479242434,
-            "std_train": 32.19810306199707,
+            "mean_train": 49.604199664040884,
+            "std_train": 32.19782377943497,
             "min_train": -47.99030799476381,
             "max_train": 145.706435631272,
             "data_type": "continuous"
         }
     ],
-    "train_size": 9352,
+    "train_size": 9350,
     "val_size": 1169,
     "test_size": 1169,
     "normalization_method": "StandardScaler (z-score)"
