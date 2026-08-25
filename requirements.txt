@@ -1,0 +1,8 @@
+python-binance==1.0.37
+pandas>=2.0.0,<3.0.0
+numpy>=1.24.0,<2.0.0
+websockets>=12.0,<14.0
+python-dotenv>=1.0.0,<2.0.
+plotly>=5.20.0,<7.0.0
+dash>=2.14.0,<3.0.0
+win10toast==0.9
