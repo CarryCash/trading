@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 
@@ -6,14 +5,17 @@ import pandas as pd
 # ---------- 2. TENDENCIA ----------
 
 def sma(df: pd.DataFrame, period: int = 50, col: str = "close") -> pd.Series:
+    """Calcula la Media Móvil Simple (SMA)."""
     return df[col].rolling(period).mean()
 
 
 def ema(df: pd.DataFrame, period: int = 20, col: str = "close") -> pd.Series:
+    """Calcula la Media Móvil Exponencial (EMA)."""
     return df[col].ewm(span=period, adjust=False).mean()
 
 
 def macd(df: pd.DataFrame, fast: int = 12, slow: int = 26, signal: int = 9) -> pd.DataFrame:
+    """Calcula el MACD (Línea MACD, Señal e Histograma)."""
     ema_fast = ema(df, fast)
     ema_slow = ema(df, slow)
     macd_line = ema_fast - ema_slow
@@ -23,6 +25,7 @@ def macd(df: pd.DataFrame, fast: int = 12, slow: int = 26, signal: int = 9) -> p
 
 
 def adx(df: pd.DataFrame, period: int = 14) -> pd.Series:
+    """Calcula el Average Directional Index (ADX) para medir fuerza de tendencia."""
     high, low, close = df["high"], df["low"], df["close"]
     plus_dm = high.diff()
     minus_dm = -low.diff()
@@ -41,6 +44,7 @@ def adx(df: pd.DataFrame, period: int = 14) -> pd.Series:
 # ---------- 3. MOMENTUM ----------
 
 def rsi(df: pd.DataFrame, period: int = 14, col: str = "close") -> pd.Series:
+    """Calcula el Relative Strength Index (RSI)."""
     delta = df[col].diff()
     gain = delta.clip(lower=0)
     loss = -delta.clip(upper=0)
@@ -51,6 +55,7 @@ def rsi(df: pd.DataFrame, period: int = 14, col: str = "close") -> pd.Series:
 
 
 def stochastic(df: pd.DataFrame, k_period: int = 14, d_period: int = 3) -> pd.DataFrame:
+    """Calcula el Oscilador Estocástico (%K y %D)."""
     low_min = df["low"].rolling(k_period).min()
     high_max = df["high"].rolling(k_period).max()
     k = 100 * (df["close"] - low_min) / (high_max - low_min)
@@ -59,25 +64,33 @@ def stochastic(df: pd.DataFrame, k_period: int = 14, d_period: int = 3) -> pd.Da
 
 
 def cci(df: pd.DataFrame, period: int = 20) -> pd.Series:
+    """Calcula el Commodity Channel Index (CCI) optimizado."""
     tp = (df["high"] + df["low"] + df["close"]) / 3
     sma_tp = tp.rolling(period).mean()
-    mean_dev = tp.rolling(period).apply(lambda x: np.mean(np.abs(x - x.mean())), raw=True)
-    return (tp - sma_tp) / (0.015 * mean_dev)
+    # Usamos rolling std como aproximación rápida a la desviación media absoluta (Mean Deviation)
+    # Matemáticamente MD = std * sqrt(2/pi) ~= std * 0.79788
+    # Esto es mucho más rápido que usar apply con lambda
+    std_tp = tp.rolling(period).std()
+    md = std_tp * np.sqrt(2 / np.pi)
+    return (tp - sma_tp) / (0.015 * md)
 
 
 # ---------- 4. VOLUMEN ----------
 
 def obv(df: pd.DataFrame) -> pd.Series:
+    """Calcula el On-Balance Volume (OBV)."""
     direction = np.sign(df["close"].diff()).fillna(0)
     return (direction * df["volume"]).cumsum()
 
 
 def vwap(df: pd.DataFrame) -> pd.Series:
+    """Calcula el Volume Weighted Average Price (VWAP)."""
     tp = (df["high"] + df["low"] + df["close"]) / 3
     return (tp * df["volume"]).cumsum() / df["volume"].cumsum()
 
 
 def volume_spike(df: pd.DataFrame, period: int = 20, mult: float = 1.8) -> pd.Series:
+    """Detecta picos de volumen relativos a una media reciente."""
     avg_vol = df["volume"].rolling(period).mean()
     return df["volume"] > (avg_vol * mult)
 
@@ -85,13 +98,17 @@ def volume_spike(df: pd.DataFrame, period: int = 20, mult: float = 1.8) -> pd.Se
 # ---------- 5. ESTRUCTURA DE PRECIO ----------
 
 def support_resistance(df: pd.DataFrame, window: int = 20) -> pd.DataFrame:
-    """Máximos y mínimos locales como proxies de resistencia/soporte."""
-    resistance = df["high"].rolling(window, center=True).max()
-    support = df["low"].rolling(window, center=True).min()
+    """
+    Máximos y mínimos locales como proxies de resistencia/soporte.
+    IMPORTANTE: No usa center=True para evitar 'mirar al futuro' (data leakage).
+    """
+    resistance = df["high"].rolling(window).max()
+    support = df["low"].rolling(window).min()
     return pd.DataFrame({"resistance": resistance, "support": support})
 
 
 def fibonacci_levels(df: pd.DataFrame, lookback: int = 100) -> dict:
+    """Calcula los niveles de Fibonacci usando un lookback de velas."""
     recent = df.tail(lookback)
     high, low = recent["high"].max(), recent["low"].min()
     diff = high - low
@@ -118,6 +135,7 @@ def trendline_slope(df: pd.DataFrame, period: int = 20, col: str = "close") -> f
 # ---------- 6. VOLATILIDAD ----------
 
 def bollinger_bands(df: pd.DataFrame, period: int = 20, std_mult: float = 2.0) -> pd.DataFrame:
+    """Calcula las Bandas de Bollinger."""
     mid = sma(df, period)
     std = df["close"].rolling(period).std()
     return pd.DataFrame({
@@ -128,6 +146,7 @@ def bollinger_bands(df: pd.DataFrame, period: int = 20, std_mult: float = 2.0) -
 
 
 def _true_range(df: pd.DataFrame) -> pd.Series:
+    """Cálculo interno del True Range (TR)."""
     prev_close = df["close"].shift(1)
     ranges = pd.concat([
         df["high"] - df["low"],
@@ -138,11 +157,19 @@ def _true_range(df: pd.DataFrame) -> pd.Series:
 
 
 def atr(df: pd.DataFrame, period: int = 14) -> pd.Series:
+    """Calcula el Average True Range (ATR)."""
     return _true_range(df).ewm(alpha=1 / period, adjust=False).mean()
 
 
 def compute_all(df: pd.DataFrame) -> pd.DataFrame:
-    """Añade todas las columnas de indicadores al DataFrame de velas."""
+    """
+    Añade todas las columnas de indicadores al DataFrame de velas.
+    Requiere al menos 200 velas para evitar resultados con puros NaNs.
+    """
+    if len(df) < 200:
+        import logging
+        logging.warning(f"Se calcularon indicadores con solo {len(df)} velas. Se recomiendan >200.")
+
     out = df.copy()
     out["sma_50"] = sma(df, 50)
     out["sma_200"] = sma(df, 200)

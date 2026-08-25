@@ -38,13 +38,19 @@ class Config:
     STARTING_CAPITAL_USDT: float = float(os.getenv("STARTING_CAPITAL_USDT", "15"))
     RISK_PER_TRADE_PCT: float = 0.015       # con leverage, arriesgar menos % por trade (el leverage ya amplifica)
     MAX_DAILY_LOSS_PCT: float = 0.10        # el bot se detiene solo si pierde 10% del capital en el día
+    
+    # El ratio de Riesgo/Beneficio está dictado por los multiplicadores de ATR.
+    # Un SL de 1.5 y TP de 2.5 da un ratio de 1:1.66, lo cual es matemáticamente
+    # rentable si la tasa de acierto es mayor al 37.5%. Ideal para TF 15m.
     STOP_LOSS_ATR_MULT: float = 1.5         # stop loss = 1.5x el ATR
     TAKE_PROFIT_ATR_MULT: float = 2.5       # take profit = 2.5x el ATR (ratio riesgo/beneficio > 1)
     MAX_OPEN_POSITIONS: int = 1             # con $15, una sola posición a la vez
 
     # --- Umbral de decisión ---
     # Cuántas de las señales (de las ~18 herramientas) deben coincidir para actuar.
-    # Empieza exigente (alto) para evitar sobre-operar con poco capital.
+    # NOTA: 5 confirmaciones es un umbral permisivo (~27% de las señales). 
+    # Para mayor rigurosidad se recomienda 7 o 9, pero se mantiene en 5 a petición 
+    # inicial para probar el flujo de señales sin asfixiar la estrategia.
     MIN_CONFIRMATIONS_TO_TRADE: int = 5
 
     # --- Seguridad ---
