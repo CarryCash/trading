@@ -252,11 +252,12 @@ class BacktestEngine:
             "final_capital": round(final_capital, 2)
         }
 
-    def execute_ml_predictions(self, df, y_pred, name="ML_Ensemble"):
+    def execute_ml_predictions(self, df, y_pred, name="ML_Ensemble", sl_atr_mult=1.5, tp_atr_mult=2.5, time_exit_candles=4):
         """
         Backtest con predicciones de modelo ML.
         Abre trade solo cuando modelo predice BUY (1) o SELL (-1).
         Usa SL/TP/TimeExit igual que el Baseline, NO opera en HOLD (0).
+        Parámetros sl_atr_mult y tp_atr_mult son configurables para optimización.
         """
         from backtest.risk_manager import calculate_position_size, calculate_stop_loss, calculate_take_profit
 
@@ -286,7 +287,7 @@ class BacktestEngine:
                     exit_price = active_trade['take_profit']
                     reason = "Take Profit"
                     
-                elif active_trade['hold_time'] >= 4:  # Close at 4 candles (1 hour) for ML model
+                elif active_trade['hold_time'] >= time_exit_candles:
                     exit_price = row['close']
                     reason = "Time Exit"
                     
@@ -327,8 +328,8 @@ class BacktestEngine:
                 if pd.isna(atr) or atr <= 0:
                     continue
                     
-                sl = calculate_stop_loss(row['close'], atr, 1.5, action)
-                tp = calculate_take_profit(row['close'], atr, 2.5, action)
+                sl = calculate_stop_loss(row['close'], atr, sl_atr_mult, action)
+                tp = calculate_take_profit(row['close'], atr, tp_atr_mult, action)
                 sl_dist = abs(row['close'] - sl)
                 pos_size = calculate_position_size(capital, 0.015, sl_dist)
                 max_pos = (capital * 3) / row['close']

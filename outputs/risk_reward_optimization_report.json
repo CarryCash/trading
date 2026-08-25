@@ -1,0 +1,32 @@
+{
+    "optimal_parameters": {
+        "sl_atr_mult": 1.25,
+        "tp_atr_mult": 1.5,
+        "ratio_tp_sl": 1.2
+    },
+    "performance_with_optimal": {
+        "win_rate": 0.5625,
+        "profit_factor": 0.61,
+        "max_drawdown": 0.0537,
+        "total_return": -0.0303,
+        "sharpe_ratio": -0.2
+    },
+    "comparison": {
+        "before": {
+            "sl_mult": 1.5,
+            "tp_mult": 2.5,
+            "profit_factor": 0.75,
+            "total_return": -0.016
+        },
+        "after": {
+            "sl_mult": 1.25,
+            "tp_mult": 1.5,
+            "profit_factor": 0.61,
+            "total_return": -0.0303
+        },
+        "improvement": {
+            "profit_factor_delta": -0.14,
+            "return_delta": -0.0143
+        }
+    }
+}
