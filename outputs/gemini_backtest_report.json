@@ -1,0 +1,48 @@
+{
+    "baseline": {
+        "name": "Baseline",
+        "total_trades": 117,
+        "winning_trades": 50,
+        "win_rate_pct": 42.74,
+        "profit_factor": 0.46,
+        "max_drawdown_pct": 44.74,
+        "sharpe_ratio": -0.36,
+        "total_return_pct": -41.46,
+        "period": "2026-07-19 18:45:00 to 2026-07-31 22:45:00 (Test set)",
+        "final_capital": 8.78
+    },
+    "ml_only": {
+        "name": "ML Only",
+        "total_trades": 16,
+        "winning_trades": 9,
+        "win_rate_pct": 56.25,
+        "profit_factor": 0.61,
+        "max_drawdown_pct": 5.37,
+        "sharpe_ratio": -0.2,
+        "total_return_pct": -3.03,
+        "period": "2026-07-19 18:45:00 to 2026-07-31 22:45:00 (Test set)",
+        "final_capital": 14.55
+    },
+    "ml_plus_gemini": {
+        "name": "ML + Gemini",
+        "total_trades": 86,
+        "winning_trades": 29,
+        "win_rate_pct": 33.72,
+        "profit_factor": 0.45,
+        "max_drawdown_pct": 26.66,
+        "sharpe_ratio": -0.35,
+        "total_return_pct": -26.59,
+        "period": "2026-07-19 18:45:00 to 2026-07-31 22:45:00 (Test set)",
+        "final_capital": 11.01
+    },
+    "comparison": {
+        "trades_baseline": 117,
+        "trades_ml": 16,
+        "trades_ml_gemini": 86,
+        "gemini_skip_rate": 83.4,
+        "gemini_effectiveness": {
+            "pf_improvement": -0.16,
+            "return_improvement": -23.56
+        }
+    }
+}

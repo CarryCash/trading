@@ -1754,33 +1754,18 @@
             "pnl_pct": 0.5542563584772113,
             "exit_reason": "Take Profit",
             "win": true
-        },
-        {
-            "entry_time": "2026-07-31 19:00:00",
-            "entry_price": 63068.93,
-            "entry_signal": "SELL",
-            "position_size": 0.0004176702931191026,
-            "stop_loss": 63308.82830856201,
-            "take_profit": 62669.09948572998,
-            "hold_time": 16,
-            "exit_time": "2026-07-31 23:00:00",
-            "exit_price": 62975.77,
-            "pnl_usd": -0.013734962288132292,
-            "pnl_pct": -0.05214088775566115,
-            "exit_reason": "Time Exit",
-            "win": false
         }
     ],
     "summary": {
         "name": "Baseline",
-        "total_trades": 118,
+        "total_trades": 117,
         "winning_trades": 50,
-        "win_rate_pct": 42.37,
+        "win_rate_pct": 42.74,
         "profit_factor": 0.46,
         "max_drawdown_pct": 44.74,
         "sharpe_ratio": -0.36,
-        "total_return_pct": -41.55,
-        "period": "2026-07-19 18:45:00 to 2026-07-31 23:15:00 (Test set)",
-        "final_capital": 8.77
+        "total_return_pct": -41.46,
+        "period": "2026-07-19 18:15:00 to 2026-07-31 22:45:00 (Test set)",
+        "final_capital": 8.78
     }
 }

@@ -40,10 +40,10 @@ class Config:
     MAX_DAILY_LOSS_PCT: float = 0.10        # el bot se detiene solo si pierde 10% del capital en el día
     
     # El ratio de Riesgo/Beneficio está dictado por los multiplicadores de ATR.
-    # Un SL de 1.5 y TP de 2.5 da un ratio de 1:1.66, lo cual es matemáticamente
-    # rentable si la tasa de acierto es mayor al 37.5%. Ideal para TF 15m.
-    STOP_LOSS_ATR_MULT: float = 1.5         # stop loss = 1.5x el ATR
-    TAKE_PROFIT_ATR_MULT: float = 2.5       # take profit = 2.5x el ATR (ratio riesgo/beneficio > 1)
+    # SL 0.8 × TP 3.0 = ratio 1:3.75. Con 56% WR:
+    #   EV = (0.56 × 3.0) - (0.44 × 0.8) = 1.68 - 0.352 = +1.328 (muy viable después de comisiones)
+    STOP_LOSS_ATR_MULT: float = 0.8         # stop loss = 0.8x el ATR (reducido para mejorar EV)
+    TAKE_PROFIT_ATR_MULT: float = 3.0       # take profit = 3.0x el ATR (ratio riesgo/beneficio 1:3.75)
     MAX_OPEN_POSITIONS: int = 1             # con $15, una sola posición a la vez
 
     # --- Umbral de decisión ---
